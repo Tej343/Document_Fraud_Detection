@@ -1,0 +1,8 @@
+streamlit
+pymupdf
+pandas
+PyPDF2
+opencv-python-headless
+pytesseract
+scikit-learn
+numpy
