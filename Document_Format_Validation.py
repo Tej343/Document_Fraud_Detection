@@ -180,7 +180,7 @@ if st.button("🚨 Validate Test Document"):
 
 st.markdown(
     """
-    <div style='font-size:10px; color:#666; font-style:italic;'>
+    <div style='font-size:17px; color:#666; font-style:italic;'>
         Ideated, Developed, and Created by Madugula Sai Tej!
     </div>
     """,
