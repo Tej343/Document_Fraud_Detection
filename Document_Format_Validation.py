@@ -130,14 +130,15 @@ if st.button("🚨 Validate Test Document"):
         unexpected_used = sum(test_combos[c] for c in unexpected)
         fraud_score = round((unexpected_used / total_used) * 100, 2) if total_used else 0
 
-        st.subheader("🎯 Fraud Risk Score")
-        st.metric(label="Fraud Score", value=f"{fraud_score}%", delta=None)
+        # st.subheader("🎯 Fraud Risk Score")
+        # st.metric(label="Fraud Score", value=f"{fraud_score}%", delta=None)
 
         # Collect suspicious characters
         suspicious_chars = [c for c in detailed_chars if c["un_com"] in unexpected]
 
         if suspicious_chars:
-            st.subheader("🚩 Suspicious Characters (Unexpected Formatting)")
+            # st.subheader("🚩 Suspicious Characters (Unexpected Formatting)")
+            st.subheader("🚩 Suspicious Content Found!!")
             sus_df = pd.DataFrame(suspicious_chars)
             st.dataframe(sus_df, use_container_width=True)
 
@@ -159,20 +160,20 @@ if st.button("🚨 Validate Test Document"):
             st.success("✅ No unexpected formatting found in test document.")
 
         # Show summary of unexpected/missing combos
-        col1, col2 = st.columns(2)
+        # col1, col2 = st.columns(2)
 
-        with col1:
-            st.subheader("❌ Unexpected Combos in Test")
-            if unexpected:
-                df_unexp = pd.DataFrame([(c, test_combos[c]) for c in unexpected], columns=["Combo", "Count"])
-                st.dataframe(df_unexp.sort_values(by="Count", ascending=False), use_container_width=True)
-            else:
-                st.info("All test combos were seen in training.")
+        # with col1:
+        #     st.subheader("❌ Unexpected Combos in Test")
+        #     if unexpected:
+        #         df_unexp = pd.DataFrame([(c, test_combos[c]) for c in unexpected], columns=["Combo", "Count"])
+        #         st.dataframe(df_unexp.sort_values(by="Count", ascending=False), use_container_width=True)
+        #     else:
+        #         st.info("All test combos were seen in training.")
 
-        with col2:
-            st.subheader("⚠️ Missing Expected Combos")
-            if missing:
-                df_missing = pd.DataFrame([(c, st.session_state.trained_un_combos[c]) for c in missing], columns=["Combo", "Expected Count"])
-                st.dataframe(df_missing.sort_values(by="Expected Count", ascending=False), use_container_width=True)
-            else:
-                st.info("All trained combos were present in test document.")
+        # with col2:
+        #     st.subheader("⚠️ Missing Expected Combos")
+        #     if missing:
+        #         df_missing = pd.DataFrame([(c, st.session_state.trained_un_combos[c]) for c in missing], columns=["Combo", "Expected Count"])
+        #         st.dataframe(df_missing.sort_values(by="Expected Count", ascending=False), use_container_width=True)
+        #     else:
+        #         st.info("All trained combos were present in test document.")
