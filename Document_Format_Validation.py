@@ -139,8 +139,8 @@ if st.button("🚨 Validate Test Document"):
         if suspicious_chars:
             # st.subheader("🚩 Suspicious Characters (Unexpected Formatting)")
             st.subheader("🚩 Suspicious Content Found!!")
-            sus_df = pd.DataFrame(suspicious_chars)
-            st.dataframe(sus_df, use_container_width=True)
+            # sus_df = pd.DataFrame(suspicious_chars)
+            # st.dataframe(sus_df, use_container_width=True)
 
             # Annotate PDF with red boxes
             doc = fitz.open(test_pdf_path)
