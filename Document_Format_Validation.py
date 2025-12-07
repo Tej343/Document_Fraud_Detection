@@ -177,3 +177,12 @@ if st.button("🚨 Validate Test Document"):
         #         st.dataframe(df_missing.sort_values(by="Expected Count", ascending=False), use_container_width=True)
         #     else:
         #         st.info("All trained combos were present in test document.")
+
+st.markdown(
+    """
+    <div style='font-size:10px; color:#666; font-style:italic;'>
+        Ideated, Developed, and Created by Madugula Sai Tej!
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
